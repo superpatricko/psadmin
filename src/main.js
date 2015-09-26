@@ -2,6 +2,7 @@ $ = jQuery = require('jquery'); // two different ways to reference jQuery.
 								// Bootstrap expects jQuery to be in the global namespace
 var React = require('react');
 var Home = require('./components/homePage');
+var Authors = require('./components/authors/authorPage');
 var About = require('./components/about/aboutPage');
 var Header = require('./components/common/header');
 
@@ -15,6 +16,7 @@ var Header = require('./components/common/header');
 			// look at the route properties
 			switch(this.props.route) {
 				case 'about': Child = About; break;
+				case 'authors': Child = Authors; break;
 				default: Child = Home;
 			}
 
