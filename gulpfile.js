@@ -47,9 +47,9 @@ gulp.task('html', function() {
 
 gulp.task('js', function() {
 	browserify(config.paths.mainJs)
-		.transform(reactify)
-		.bundle()
-		.on('error', console.error.bind(console))
+		.transform(reactify) // transform jsx into javascript
+		.bundle() // put it all into one file
+		.on('error', console.error.bind(console)) 
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest(config.paths.dist + '/scripts'))
 		.pipe(connect.reload());
