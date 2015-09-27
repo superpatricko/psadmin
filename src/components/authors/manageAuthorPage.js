@@ -1,11 +1,16 @@
 "use strict";
 
 var React = require('react');
+var Router = require('react-router');
 var AuthorForm = require('./authorForm');
 var AuthorApi = require('../../api/authorApi');
 
 // The setAuthorState(event) is called for every keystroke
 var ManageAuthorPage = React.createClass({
+	mixins: [
+		Router.Navigation
+	],
+
 	getInitialState: function() {
 		return {
 			author: { id: '', firstName: '', lastName: '' }
@@ -22,6 +27,7 @@ var ManageAuthorPage = React.createClass({
 	saveAuthor: function(event) {
 		event.preventDefault();
 		AuthorApi.saveAuthor(this.state.author);
+		this.transitionTo('authors');
 	},
 
 	render: function() {
