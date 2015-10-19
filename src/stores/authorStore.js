@@ -5,7 +5,7 @@ var ActionTypes = require('../constants/actionTypes');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 var _ = require('lodash');
-var CHANGE_EVENT = 'change'
+var CHANGE_EVENT = 'change';
 
 var _authors = [];
 
@@ -34,9 +34,10 @@ var AuthorStore = assign({}, EventEmitter.prototype, {
 
 Dispatcher.register(function(action) {
 	switch(action.actionType) {
-		case ActionTypes.CREATE_AUTHOR
+		case ActionTypes.CREATE_AUTHOR:
 			_authors.push(action.author);
 			AuthorStore.emitChange(); // important to emit change when something changes
+		
 	}
 });
 
